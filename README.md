@@ -4,7 +4,7 @@
 
 Tend is a defined-risk BTC, ETH and MON trading prototype on **Robinhood Chain testnet** (chain ID 46630). A trader chooses UP or DOWN, an expiry and a fixed **1.5×, 2× or 3× total winning payout**. The premium is the maximum trading loss, excluding gas. The vault escrows the full potential payout before the position opens; there is no margin account or liquidation.
 
-[Open the live app](https://robinhood.usetend.xyz) · [Deployment manifest](deployments/robinhood-testnet.json) · [Explorer: vault](https://explorer.testnet.chain.robinhood.com/address/0x9542d2908591aed8366cede289286a8fcdf32f90)
+[Open the live app](https://robinhood.usetend.xyz) · [One-minute explainer](web/public/media/tend-robinhood-submission.mp4) · [Deployment manifest](deployments/robinhood-testnet.json) · [Explorer: vault](https://explorer.testnet.chain.robinhood.com/address/0x9542d2908591aed8366cede289286a8fcdf32f90)
 
 > **Testnet prototype:** mUSDC is a valueless mock token. Coinbase spot and candle data drive quotes. At expiry, Tend's operator posts the Coinbase expiry-minute reference to TendPriceOracle. The oracle is admin-controlled and prices are **not independently attested on-chain**. Contracts are unaudited; this is not ready for real funds.
 
