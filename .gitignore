@@ -1,0 +1,68 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+web/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+/artifacts/
+/cache/
+
+# next.js
+/.next/
+/out/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+!.env.example
+# Non-secret: only sets VITE_QUOTE_SERVICE_URL=/api so the production SPA calls
+# the same-origin serverless function. Must be committed for Vercel's build to
+# pick it up. Contains no secret (the signing key is a Vercel server-side env var).
+!web/.env.production
+
+# vercel
+.vercel
+
+# typescript
+next-env.d.ts
+/dist/
+web/dist/
+# generated at dev/build time by web/scripts/sync-deployment.mjs
+web/public/deployments/
+/outputs/
+/work/
+/.playwright-cli/
+/.superstack/
+
+# e2e-monad.ts: persisted throwaway buyer key (never a funded mainnet key)
+/.devnet/
+
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo
+.brand-preview/
+*.bak
+
+# Local editor/tooling state and operating notes. Not part of the product.
+CLAUDE.md
+.claude/
+.agents/
+.codex/
+.openai/

@@ -1,0 +1,85 @@
+{
+  "title": "Tend — Binary founder pitch",
+  "format": "1920x1080, 16:9, narrated motion-graphic draft",
+  "status": "DRAFT — local render only; not submitted or published",
+  "voice": "macOS Samantha synthetic narration",
+  "scenes": [
+    {
+      "id": "01",
+      "eyebrow": "TEND / FOUNDER PITCH / DRAFT",
+      "title": "A market view. A fixed maximum loss.",
+      "cards": ["BTC  ·  ETH  ·  MON", "Monad testnet"],
+      "captions": [
+        "Tend is a testnet prototype for defined-risk BTC, ETH, and MON trades on Monad.",
+        "A trader chooses a direction and knows the premium at risk before entry."
+      ],
+      "footer": "No user, production, or profitability claim"
+    },
+    {
+      "id": "02",
+      "eyebrow": "01 / FIXED TERMS",
+      "title": "Pick a total winning payout tier.",
+      "cards": ["1.5×", "2×", "3×"],
+      "captions": [
+        "Each quote has a fixed total winning payout: one point five, two, or three times the charged premium.",
+        "The premium is the maximum trading loss, excluding network gas."
+      ],
+      "footer": "Fixed payout tier · premium is maximum loss"
+    },
+    {
+      "id": "03",
+      "eyebrow": "02 / EXPIRY-ONLY PAYOFF",
+      "title": "Only expiry settles a held position.",
+      "cards": ["UP  final price > strike", "DOWN  final price < strike", "Tie  payout 0"],
+      "captions": [
+        "UP pays only when the final settlement price is strictly above the signed strike.",
+        "DOWN pays only when it is strictly below. A tie loses, and an earlier cross is irrelevant."
+      ],
+      "footer": "Expiry price decides · not an intraday trigger"
+    },
+    {
+      "id": "04",
+      "eyebrow": "03 / COLLATERAL",
+      "title": "One tick. Fully escrowed obligation.",
+      "cards": ["Signed quote", "Width: 1 raw price tick", "Vault locks max payout"],
+      "captions": [
+        "A one raw price tick width makes the current quote an expiry-only binary result.",
+        "Before the position opens, the pool vault locks the maximum payout for that quote."
+      ],
+      "footer": "Monad testnet escrow · no margin account"
+    },
+    {
+      "id": "05",
+      "eyebrow": "04 / OPERATOR REHEARSAL / SEP 28",
+      "title": "A real testnet loss path, checked end to end.",
+      "cards": ["Position #4  ·  UP", "Premium  10 mUSDC", "Maximum payout  20 mUSDC", "Strike  $84,575.198667"],
+      "captions": [
+        "On September twenty-eighth, an operator command-line wallet opened Monad testnet position four.",
+        "It paid ten mUSDC for a two-times ticket, with a maximum payout of twenty mUSDC and a one-tick UP strike of eighty-four thousand, five hundred seventy-five point one nine eight six six seven dollars."
+      ],
+      "footer": "Operator CLI position · not a browser-wallet confirmation"
+    },
+    {
+      "id": "06",
+      "eyebrow": "05 / EXPIRY RESULT",
+      "title": "The final price finished below the UP strike.",
+      "cards": ["Coinbase expiry open  $84,420.19", "Signed UP strike  $84,575.198667", "Actual payout  0 mUSDC"],
+      "captions": [
+        "At expiry, the Coinbase reference was eighty-four thousand, four hundred twenty dollars and nineteen cents, below the UP strike.",
+        "The on-chain payout was zero. That verifies a loss case, not a profitable trade."
+      ],
+      "footer": "Strict expiry-only result verified for position #4"
+    },
+    {
+      "id": "07",
+      "eyebrow": "06 / TESTNET BOUNDARIES",
+      "title": "Useful proof, clear limits.",
+      "cards": ["mUSDC has no monetary value", "MockPyth does not authenticate updates", "No production-oracle claim"],
+      "captions": [
+        "This draft uses valueless testnet mUSDC and MockPyth, which does not authenticate oracle attestations.",
+        "Tend still needs authenticated settlement, reliable operations, independent review, and user testing before real funds."
+      ],
+      "footer": "DRAFT · local-only render · no hackathon submission"
+    }
+  ]
+}

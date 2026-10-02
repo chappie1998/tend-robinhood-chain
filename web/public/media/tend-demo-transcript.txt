@@ -1,0 +1,44 @@
+Tend — captured product demonstration
+September 12, 2026
+
+A view on the market. A limit on your loss.
+A trader can be right about the final price and still be liquidated along the way. Tend gives BTC
+and ETH traders a different contract: a fixed premium, capped upside, and no liquidation. This is
+the actual app running on Monad testnet.
+
+Two markets. Real exchange data.
+Switch from Bitcoin to Ethereum and the market chart updates with real Coinbase prices. The data
+path checks freshness and rejects missing or malformed prices. A data failure stops quoting instead
+of inventing a number.
+
+Choose direction. Review the exact expiry.
+Choose up or down, an expiry schedule, and the premium you are willing to lose. The exact expiry is
+shown because a scheduled market is not a new full duration from purchase. Twenty-five times means
+maximum payout divided by premium, not a guaranteed return.
+
+The maximum payout is escrowed at entry.
+At the fill, the vault locks the position's maximum payout and enforces its risk limits. The pool
+view reads assets, locked collateral, and open obligations directly from Monad. Here, the completed
+rehearsal has settled and its collateral is released.
+
+Inspect one completed trade.
+This is historical position ten, completed earlier today through the live quote API and a command-
+line wallet. The buyer paid just under one hundred mock USDC. The vault escrowed two thousand five
+hundred mock USDC, and the receipt records the checks.
+
+A real fill, with a public transaction hash.
+MonadScan shows the successful fill and the exact premium transfer into the vault. The rehearsal
+reconciled the buyer's balance and collateral lock. This is an actual testnet transaction, not a
+simulated success screen.
+
+The loss case is part of the proof.
+After the real expiry, the position settled successfully with a payout of zero. The premium was the
+entire trading loss, excluding network gas, and collateral returned to the pool. The demo uses a
+real Coinbase expiry-minute price through MockPyth, which does not authenticate oracle attestations.
+
+Capped exposure. Defined downside. Built on Monad.
+September work adds model-based pricing, expiry ladders, indicative marks, and realized trade
+history to an existing foundation. Monad supports the EVM contracts and short-lived signed quote
+flow shown here. This remains a testnet demo: mock collateral, mock oracle verification, no early
+exit, and a keeper scheduling gap. Explore the app and inspect the receipts at monad dot usetend dot
+xyz.

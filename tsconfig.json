@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    // ES2022, not ES2017. The Vercel serverless functions in api/ are compiled
+    // against THIS config, and api/quote.ts pulls in quote-service/derive.ts,
+    // which uses BigInt literals (10_000n) for exact 1e8-scaled price maths.
+    // At ES2017 those are a hard compile error (TS2737) and the deploy fails --
+    // while `npm run build` passes locally, because the SPA builds against
+    // web/tsconfig.json, which is already ES2022. Keep the two in step.
+    "target": "ES2022",
+    "lib": ["ES2022", "dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.mts"],
+  "exclude": ["node_modules"]
+}

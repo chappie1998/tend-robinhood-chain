@@ -1,0 +1,81 @@
+{
+  "network": "monadTestnet",
+  "chainId": 10143,
+  "explorer": "https://testnet.monadscan.com",
+  "runAt": "2026-09-16T00:07:07.744Z",
+  "status": "complete",
+  "deployer": "0x9660093ce5a6cfe346d1fef2bdc12e5e77c2a2cc",
+  "buyer": {
+    "address": "0xda33594d256531125411e0DD28f986fe3CCDD607",
+    "keyPath": "/Users/ankit/tend-monad/.devnet/monad-e2e-buyer.json"
+  },
+  "funding": {
+    "buyerMonFundTxHash": null,
+    "buyerMusdcFundTxHash": null
+  },
+  "series": {
+    "seriesId": "0x0cd051d092fb9729775498c397165c8e72fcd2a1ba90610fd0edcbe943c387ac",
+    "pythFeedId": "0xe62df6c8b4a85fe1a67db44dc12de5db330f7ac66b72dc658afedf0f4a415b43",
+    "settlementToken": "0x2c1c01b4830148d0b17ae4ee74fdd082c2e7d850",
+    "symbol": "BTCE2E",
+    "expiry": "1789518360",
+    "observationWindow": 180,
+    "settlementGrace": 3600,
+    "maxConfidenceBps": 500,
+    "lastTradeAt": "1789518300",
+    "createTxHash": "0x182d2472512eb0b60f6f7cc9f0969ba91dd5fcf702a30f15d3450a64a986c1b7",
+    "authorizeTxHash": "0xba6802064d29aef80a78d9633457b036be8e737f0b59c9fb81883d81cc17c2ca"
+  },
+  "quote": {
+    "nonce": "221620987515023190889620934513784619704",
+    "direction": "UP",
+    "strike": "7570992000000",
+    "width": "37854960000",
+    "premium": "200000000",
+    "maxPayout": "5000000000",
+    "quoteExpiry": "1789517539",
+    "signature": "0x5f6d9497ccfeddc60c78a56dc45d076ea7ac20675331de971e10eb94711abb8949e392579f555d7d058b010285fd932adcd928b9b86a1a60a375aba1363659c21b",
+    "signer": "0x9660093ce5a6cfe346d1fef2bdc12e5e77c2a2cc",
+    "localRecoverMatch": true,
+    "onchainDigest": "0xd5746d1504178423074a1b7dddf7eeab7b73fe612da801b7646beca4afef8d1e",
+    "hermesSpotAtQuote": 75709.92
+  },
+  "fill": {
+    "positionId": "2",
+    "approveTxHash": "0x02ec7a3decd587fcd891138f8b57c0fec82a82544931704bc59fb7238d86822d",
+    "fillTxHash": "0x0766b479d4a75c901d5352238df5ddae21f29295147cb1ddff1bc2053d660fe0",
+    "lockedCollateralAfterFill": "5000000000",
+    "openPositionsAfterFill": "1",
+    "buyerMusdcAfterFill": "1685879815"
+  },
+  "settlement": {
+    "publishSettlementTxHash": "0x00fc5e5602e76b11137cd4c21bd6569076e0457e45a27fddc8db575e24469a4a",
+    "settledPrice": "7577232000000",
+    "settledPriceHuman": 75772.32,
+    "onchainPublishTime": "1789518360",
+    "stampedPublishTime": "1789518360",
+    "hermesRealPublishTime": 1789518360,
+    "hermesRawPrice": "7577232000000",
+    "hermesRawConf": "0",
+    "hermesExpo": -8,
+    "impliedConfidenceBps": "0",
+    "note": "Settlement uses the real Coinbase expiry-minute open with its actual minute timestamp. MockPyth does not verify an oracle attestation; confidence zero means unavailable."
+  },
+  "settle": {
+    "settleTxHash": "0xd29b8e0d06f254d6b3c0047d106a6d579a5297b30b5a32f4664d6fe0484dd62f",
+    "expectedPayout": "824198466",
+    "actualPayout": "824198466",
+    "poolAmount": "4375801534",
+    "fee": "0",
+    "lockedCollateralAfterSettle": "0",
+    "openPositionsAfterSettle": "0"
+  },
+  "reconciliation": {
+    "buyerMusdcBeforeFunding": "1885879815",
+    "buyerMusdcFinal": "2510078281",
+    "netChange": "624198466",
+    "expectedNetChange": "624198466",
+    "poolLockedCollateralFinal": "0",
+    "poolOpenPositionsFinal": "0"
+  }
+}

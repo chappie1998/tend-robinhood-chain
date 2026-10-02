@@ -1,0 +1,123 @@
+{
+  "name": "@tend-protocol/metamask-agent-wallet-plugin",
+  "version": "0.1.0",
+  "description": "MetaMask Agent Wallet plugin for bounded Tend testnet quotes and trades",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "oclif-plugin",
+    "metamask",
+    "agent-wallet",
+    "monad",
+    "tend"
+  ],
+  "files": [
+    "dist",
+    "oclif.manifest.json",
+    "README.md",
+    "LICENSE",
+    "skills"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && oclif manifest",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build"
+  },
+  "oclif": {
+    "bin": "mm",
+    "commands": "./dist/commands",
+    "topicSeparator": " ",
+    "topics": {
+      "tend": {
+        "description": "Trade bounded Tend positions on Monad testnet"
+      }
+    }
+  },
+  "mm": {
+    "schemaVersion": 1,
+    "minCliVersion": "^7.0.0",
+    "capabilities": [],
+    "commands": [
+      {
+        "id": "tend:markets",
+        "capabilities": [
+          "wallet-read"
+        ],
+        "dataAccess": [
+          "network"
+        ],
+        "targetChains": [
+          10143
+        ]
+      },
+      {
+        "id": "tend:quote",
+        "capabilities": [
+          "wallet-read"
+        ],
+        "dataAccess": [
+          "accounts",
+          "network"
+        ],
+        "targetChains": [
+          10143
+        ]
+      },
+      {
+        "id": "tend:positions",
+        "capabilities": [
+          "wallet-read"
+        ],
+        "dataAccess": [
+          "accounts",
+          "network"
+        ],
+        "targetChains": [
+          10143
+        ]
+      },
+      {
+        "id": "tend:buy",
+        "capabilities": [
+          "wallet-read",
+          "wallet-submit"
+        ],
+        "dataAccess": [
+          "accounts",
+          "network"
+        ],
+        "targetChains": [
+          10143
+        ]
+      },
+      {
+        "id": "tend:close",
+        "capabilities": [
+          "wallet-read",
+          "wallet-submit"
+        ],
+        "dataAccess": [
+          "accounts",
+          "network"
+        ],
+        "targetChains": [
+          10143
+        ]
+      }
+    ]
+  },
+  "peerDependencies": {
+    "@metamask/agent-wallet": "^7.0.0"
+  },
+  "dependencies": {
+    "viem": "^2.37.9"
+  },
+  "devDependencies": {
+    "@metamask/agent-wallet": "^7.0.0",
+    "@types/node": "^22.18.6",
+    "oclif": "^4.22.30",
+    "typescript": "^5.9.2",
+    "vitest": "^5.0.2"
+  }
+}

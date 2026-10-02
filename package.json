@@ -1,0 +1,49 @@
+{
+  "name": "tend-markets",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "check:readiness": "node --env-file-if-exists=.env --import tsx scripts/check-readiness.ts",
+    "dev": "npm --prefix web run dev",
+    "build": "npm --prefix web run build",
+    "start": "npm --prefix web run preview",
+    "test": "node --import tsx --test tests/*.test.mjs",
+    "test:contracts": "hardhat test solidity",
+    "test:pyth-fork": "node --env-file-if-exists=.env node_modules/.bin/hardhat run scripts/pyth-fork-settlement.ts",
+    "deploy:monad": "hardhat run scripts/deploy.ts --network monadTestnet",
+    "deploy:vault:monad": "node --env-file-if-exists=.env node_modules/.bin/hardhat run scripts/deploy-vault.ts --network monadTestnet",
+    "bootstrap:monad": "node --env-file=.env node_modules/.bin/hardhat run scripts/bootstrap-monad.ts --network monadTestnet",
+    "e2e:monad": "node --env-file=.env node_modules/.bin/hardhat run scripts/e2e-monad.ts --network monadTestnet",
+    "quote:service": "node --env-file=.env --import tsx quote-service/server.ts",
+    "settle:monad": "node --env-file=.env node_modules/.bin/hardhat run scripts/settle-monad-position.ts --network monadTestnet",
+    "verify:early-exit:monad": "node --env-file=.env node_modules/.bin/hardhat run scripts/verify-early-exit.ts --network monadTestnet",
+    "keeper:monad": "node --env-file-if-exists=.env node_modules/.bin/hardhat run scripts/keeper-monad.ts --network monadTestnet",
+    "check": "npm run lint && npm test && npm run typecheck && npm run build && npm run test:contracts",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit -p tsconfig.demo.json && npm --prefix web run typecheck",
+    "rehearse:demo": "node --env-file=.env --import tsx scripts/rehearse-demo.ts",
+    "bootstrap:robinhood": "node --env-file=.env node_modules/.bin/hardhat run scripts/bootstrap-monad.ts --network robinhoodTestnet",
+    "keeper:robinhood": "node --env-file-if-exists=.env node_modules/.bin/hardhat run scripts/keeper-monad.ts --network robinhoodTestnet",
+    "deploy:robinhood": "node --env-file-if-exists=.env node_modules/.bin/hardhat run scripts/deploy.ts --network robinhoodTestnet"
+  },
+  "dependencies": {
+    "@pythnetwork/pyth-sdk-solidity": "^4.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@nomicfoundation/hardhat-viem": "^3.0.9",
+    "@types/node": "22.19.19",
+    "eslint": "9.39.4",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "forge-std": "github:foundry-rs/forge-std#v1.9.4",
+    "hardhat": "^3.10.0",
+    "tsx": "^4.23.13",
+    "typescript": "5.9.3",
+    "typescript-eslint": "^8.70.0",
+    "viem": "^2.55.10"
+  },
+  "type": "module"
+}

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tend — know your downside before you trade</title>
+<meta name="description" content="Defined-risk BTC, ETH and MON trades on Monad. Fixed 1.5x, 2x and 3x winning payouts at expiry. Testnet demo." />
+<style>
+  :root{
+    --canvas:#0b0b0b; --surface:#161616; --surface-2:#1c1c1c;
+    --ink:#f5f5f5; --ink-muted:#8a8a8a; --accent:#62d67f;
+    --negative:#ff6b6b; --border:#242424;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--canvas); color:var(--ink); font-family:var(--sans);
+    font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:56px 24px 96px}
+  header{border-bottom:1px solid var(--border);padding-bottom:28px;margin-bottom:44px}
+  .mark{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:clamp(28px,4.6vw,42px);line-height:1.14;margin:14px 0 12px;letter-spacing:-.022em;font-weight:600}
+  .lede{font-size:clamp(16px,2.1vw,19px);color:var(--ink-muted);max-width:66ch;margin:0}
+  section{margin:0 0 44px}
+  h2{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+     color:var(--ink-muted);margin:0 0 16px;font-weight:500}
+  h3{font-size:16px;margin:0 0 6px;font-weight:600;letter-spacing:-.01em}
+  p{margin:0 0 12px;max-width:72ch}
+  .grid{display:grid;gap:14px}
+  @media(min-width:680px){ .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)} }
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px}
+  .card p{color:var(--ink-muted);font-size:14px;margin:0}
+  .num{font-family:var(--mono);color:var(--accent);font-size:12px;letter-spacing:.1em;margin-bottom:8px}
+  .tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+  th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);font-weight:500}
+  tr:last-child td{border-bottom:none}
+  td.mono,.mono{font-family:var(--mono);font-size:12.5px;word-break:break-all}
+  .accent{color:var(--accent)}
+  .muted{color:var(--ink-muted)}
+  ul{margin:0;padding-left:18px;color:var(--ink-muted)}
+  li{margin-bottom:7px}
+  li strong{color:var(--ink);font-weight:600}
+  .callout{border-left:2px solid var(--accent);padding:2px 0 2px 16px;margin:0 0 16px}
+  .status{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:18px}
+  .status strong{color:var(--ink)}
+  footer{border-top:1px solid var(--border);padding-top:24px;margin-top:56px;color:var(--ink-muted);font-size:14px}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+  a:hover{border-bottom-color:var(--accent)}
+  @media (prefers-color-scheme: light){
+    :root{--canvas:#fafafa;--surface:#fff;--surface-2:#f4f4f4;--ink:#111;--ink-muted:#5c5c5c;
+          --accent:#0f7340;--border:#e4e4e4}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="mark">Tend · Built on Monad</div>
+  <h1>A view on the market.<br>A limit on what you can lose.</h1>
+  <p class="lede">Take a direction on BTC, ETH or MON with a fixed premium and a 1.5×, 2× or 3× total payout if the expiry price wins. No margin calls and no liquidation. Before expiry, an eligible position may receive a fresh signed early-exit bid.</p>
+  <p style="margin-top:24px"><a href="/">Open the testnet demo →</a> &nbsp; <a href="https://github.com/chappie1998/tend-monad">Private repository · access required →</a></p>
+  <p class="muted">Monad Metropolis · Onchain Finance &amp; Trading · Testnet mUSDC only</p>
+</header>
+<section>
+  <h2>The trader's problem</h2>
+  <p>A trader can be right about the final price and still lose a margined position to an earlier price swing. Tend gives that trader a different contract: the entry premium is the maximum loss, and the position survives until expiry.</p>
+  <p>The trade-off is explicit: the upside is capped, the premium can be lost in full, and an early exit depends on a fresh signed pool bid before expiry. An indicative mark is not an executable bid.</p>
+</section>
+<section>
+  <h2>One trade, three promises</h2>
+  <div class="grid g3">
+    <div class="card"><div class="num">01 / BEFORE YOU BUY</div><h3>Know the maximum loss</h3><p>Choose UP or DOWN, a 15-minute, 1-hour or 12-hour schedule, and a 1.5×, 2× or 3× winning payout. Review the quoted strike, premium and exact expiry before signing.</p></div>
+    <div class="card"><div class="num">02 / AT THE FILL</div><h3>Lock the maximum payout</h3><p>The vault escrows the full maximum payout when it accepts the signed quote. Pool utilization and position limits are enforced on-chain.</p></div>
+    <div class="card"><div class="num">03 / BEFORE OR AFTER EXPIRY</div><h3>Close or settle by clear rules</h3><p>Before expiry, an eligible position can accept a fresh signed pool bid. If held, only the expiry settlement price decides its all-or-zero payout. If no settlement is published before the deadline, the contract supports a premium refund.</p></div>
+  </div>
+</section>
+<section>
+  <h2>Only the expiry price decides</h2>
+  <p>Illustrative 2× UP trade: pay 10 testnet mUSDC for a total winning payout of 20 mUSDC, with a strike of $80,000:</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Expiry price</th><th>Payout</th><th>Net result</th></tr></thead>
+    <tbody><tr><td>$80,000 or below</td><td>0 mUSDC</td><td>−10 mUSDC</td></tr>
+    <tr><td>Above $80,000</td><td>20 mUSDC</td><td>+10 mUSDC</td></tr></tbody>
+  </table></div>
+  <p class="muted" style="margin-top:12px">Illustrative terms, excluding network gas; not a live quote. Crossing the strike earlier does not count if price reverses by expiry. A 2× total payout is a 1× net profit on a win; a loss costs the premium. Live strikes use exchange spot and realized volatility.</p>
+</section>
+<section>
+  <h2>Why Monad</h2>
+  <p>Tend combines frequent expiry schedules with quotes valid for just 30 seconds. Monad's low-latency EVM execution is a fit for that interaction: request a quote, confirm the fill, and inspect the collateral movement in the same flow.</p>
+  <p>These are actual Solidity contracts on Monad testnet. We are not claiming a measured throughput advantage over other chains; the demo evidence records real transaction receipts and reconciled balances.</p>
+</section>
+<section>
+  <h2>What is running today</h2>
+  <div class="grid g2">
+    <div class="card"><h3>The trading experience</h3><p>Live Coinbase BTC/ETH/MON data, fixed payout choices with quoted strikes, 15-minute / 1-hour / 12-hour expiry schedules, signed quotes, signed early-exit bids, position history and pool accounting. The exact expiry is shown because scheduled markets do not promise a fresh full tenor from purchase.</p></div>
+    <div class="card"><h3>The protocol</h3><p>TendSeriesFactory defines expiries and settlement. TendPoolVault checks EIP-712 quotes, escrows collateral and pays positions. The repository includes adversarial and fuzz tests for capped payouts and escrow conservation.</p></div>
+  </div>
+  <p style="margin-top:16px"><a href="#proof">Binary trade receipts</a> · <a href="https://testnet.monadscan.com/address/0x179496c12efabb8131b16a3affeaf6cb5547b105">Inspect the current vault</a></p>
+</section>
+<section id="proof">
+  <h2>Inspect an actual trade</h2>
+  <p><strong>September 28, 2026 · Monad testnet binary position #4.</strong> This operator-run rehearsal used the current local HTTP signer and a dedicated CLI wallet. It filled on-chain, waited for the real 00:15 UTC expiry, published the Coinbase expiry-minute opening price through MockPyth, and verified balances and the strict expiry-only payout. It is not a user transaction or browser-wallet confirmation.</p>
+  <div class="grid g3">
+    <div class="card"><div class="num">PREMIUM PAID</div><h3>10 mUSDC</h3><p>Maximum buyer loss, excluding testnet gas.</p></div>
+    <div class="card"><div class="num">2× WINNING PAYOUT</div><h3>20 mUSDC</h3><p>One-tick signed width; the full maximum was escrowed at fill.</p></div>
+    <div class="card"><div class="num">ACTUAL PAYOUT</div><h3>0 mUSDC</h3><p>The expiry price finished below the UP strike, so the premium was lost and collateral returned to the pool.</p></div>
+  </div>
+  <p style="margin-top:16px"><a href="https://testnet.monadscan.com/tx/0xb05a5cab6577e3fe4d91811269939254a23869a0727cf671454f29385276c3ca">Fill transaction →</a> &nbsp; <a href="https://testnet.monadscan.com/tx/0x3bb0ee284bee08b557b999cda5bb6ebd323b191db1d7291aaaec88e41495ac58">Publish reference →</a> &nbsp; <a href="https://testnet.monadscan.com/tx/0xa1b922776cf823c1e9ff48cffab5517d032c3c550162c50db54772b903bbd17f">Settlement →</a> &nbsp; <a href="/evidence/demo-rehearsal.json">Evidence JSON →</a></p>
+  <p class="muted">Signed UP strike: $84,575.198667. Coinbase 00:15 UTC expiry-minute open: $84,420.19. The position lost because the final price was below the strike; an earlier crossing would not change this outcome. MockPyth bypasses attestation verification. This receipt does not demonstrate a winning trade, a browser wallet fill, or an early exit. The <a href="/evidence/demo-rehearsal-2026-09-12.json">September 12 historical position #10</a> remains archived.</p>
+</section>
+<section>
+  <h2>Testnet boundaries</h2>
+  <div class="status">
+    <p><strong>Real prices; admin-posted oracle; mock collateral.</strong> Coinbase is a public, single-exchange data source. Settlement prices are posted to TendPriceOracle, which only Tend's admin key can write to — no trader can settle at an invented price. The admin is trusted and the price is not independently attested, so this is not a production settlement oracle.</p>
+    <p><strong>Current operational gap.</strong> A local scheduler sweeps both testnets, but it depends on a funded laptop staying awake and online. Verify its recent logs and market availability before a rehearsal; reliable unattended operation remains required before a public launch.</p>
+    <p style="margin-bottom:0">A production release needs an authenticated oracle, independent security review, reliable keepers, and a deployment matched to reviewed source. This is an existing project being improved for Metropolis; prior work will be disclosed in the submission.</p>
+  </div>
+</section>
+<footer>Tend · Capped exposure. Defined downside. Built on Monad.<br>Testnet demonstration. No mainnet availability or traction claims.</footer>
+</div>
+</body>
+</html>

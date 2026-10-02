@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "incremental": false
+  },
+  "include": [
+    "api/**/*.ts",
+    "market-data/**/*.ts",
+    "quote-service/**/*.ts",
+    "config/**/*.ts",
+    "scripts/rehearse-demo.ts",
+    "scripts/check-readiness.ts"
+  ],
+  "exclude": ["node_modules", "dist", "web/dist"]
+}

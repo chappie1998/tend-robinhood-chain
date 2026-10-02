@@ -1,0 +1,38 @@
+{
+  "name": "tend-monad-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Client-side SPA for the Tend options protocol on Monad testnet (read-path slice).",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "gen:abis": "node scripts/gen-abis.mjs",
+    "sync:deployment": "node scripts/sync-deployment.mjs"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.101.4",
+    "lightweight-charts": "^5.2.0",
+    "lucide-react": "^1.24.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "viem": "^2.55.10",
+    "wagmi": "^2.19.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "typescript": "^5.9.3",
+    "vite": "^8.1.5"
+  },
+  "overrides": {
+    "axios": "1.18.0",
+    "nanoid": "3.3.18",
+    "viem@2.23.2": {
+      "ws": "8.21.0"
+    }
+  }
+}

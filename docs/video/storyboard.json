@@ -1,0 +1,42 @@
+[
+  {
+    "capture": "01-market", "title": "A view on the market. A limit on your loss.", "tag": "01 / THE PRODUCT", "crop": [0, 0, 1310, 780],
+    "captions": ["A trader can be right about the final price and still be liquidated along the way.", "Tend gives BTC and ETH traders a different contract: a fixed premium, capped upside, and no liquidation.", "This is the actual app running on Monad testnet."],
+    "note": "Real app capture • September 12, 2026 • Testnet only"
+  },
+  {
+    "capture": "02-eth", "title": "Two markets. Real exchange data.", "tag": "02 / MARKET DATA", "crop": [0, 0, 1310, 780],
+    "captions": ["Switch from Bitcoin to Ethereum and the market chart updates with real Coinbase prices.", "The data path checks freshness and rejects missing or malformed prices.", "A data failure stops quoting instead of inventing a number."],
+    "note": "Coinbase Exchange data • No paid price-data key"
+  },
+  {
+    "capture": "03-expiry", "title": "Choose direction. Review the exact expiry.", "tag": "03 / THE TICKET", "crop": [0, 0, 1310, 780],
+    "captions": ["Choose up or down, an expiry schedule, and the premium you are willing to lose.", "The exact expiry is shown because a scheduled market is not a new full duration from purchase.", "Twenty-five times means maximum payout divided by premium, not a guaranteed return."],
+    "note": "Selection demonstration • No wallet confirmation is staged"
+  },
+  {
+    "capture": "04-pool", "title": "The maximum payout is escrowed at entry.", "tag": "04 / COLLATERAL", "crop": [0, 500, 1310, 450],
+    "captions": ["At the fill, the vault locks the position's maximum payout and enforces its risk limits.", "The pool view reads assets, locked collateral, and open obligations directly from Monad.", "Here, the completed rehearsal has settled and its collateral is released."],
+    "note": "On-chain pool read • Mock USDC • Pool state at capture time"
+  },
+  {
+    "capture": "05-proof", "title": "Inspect one completed trade.", "tag": "05 / HISTORICAL REHEARSAL", "crop": [180, 0, 960, 440],
+    "captions": ["This is historical position ten, completed earlier today through the live quote API and a command-line wallet.", "The buyer paid just under one hundred mock USDC.", "The vault escrowed two thousand five hundred mock USDC, and the receipt records the checks."],
+    "note": "Position #10 • Premium 99.999963 mUSDC • Collateral 2,500 mUSDC"
+  },
+  {
+    "capture": "06-fill", "title": "A real fill, with a public transaction hash.", "tag": "06 / MONADSCAN EVIDENCE", "crop": [0, 0, 1310, 800],
+    "captions": ["MonadScan shows the successful fill and the exact premium transfer into the vault.", "The rehearsal reconciled the buyer's balance and collateral lock.", "This is an actual testnet transaction, not a simulated success screen."],
+    "note": "Fill 0x312a4aec…937f2997 • September 12, 09:27 UTC"
+  },
+  {
+    "capture": "07-settle", "title": "The loss case is part of the proof.", "tag": "07 / SETTLEMENT", "crop": [0, 0, 1310, 800],
+    "captions": ["After the real expiry, the position settled successfully with a payout of zero.", "The premium was the entire trading loss, excluding network gas, and collateral returned to the pool.", "The demo uses a real Coinbase expiry-minute price through MockPyth, which does not authenticate oracle attestations."],
+    "note": "Settlement 0xafc1f910…f15fc3 • Actual payout 0 mUSDC"
+  },
+  {
+    "capture": "01-market", "title": "Capped exposure. Defined downside. Built on Monad.", "tag": "08 / WHAT COMES NEXT", "crop": [0, 0, 1310, 780],
+    "captions": ["September work adds model-based pricing, expiry ladders, indicative marks, and realized trade history to an existing foundation.", "Monad supports the EVM contracts and short-lived signed quote flow shown here.", "This remains a testnet demo: mock collateral, mock oracle verification, no early exit, and a keeper scheduling gap.", "Explore the app and inspect the receipts at monad dot usetend dot xyz."],
+    "note": "monad.usetend.xyz • Prior work and AI assistance disclosed"
+  }
+]
